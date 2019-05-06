@@ -1,0 +1,36 @@
+header {
+    min-height: 200px;
+    text-align: center;
+}
+
+header .greeting{
+    line-height: 60px;
+}
+
+header button {
+    width: 130px;
+}
+
+body {
+    max-width: 1000px;
+    margin: auto;
+}
+
+body .btn.update, body .btn.mark-as-solved {
+    padding: 1px;
+}
+
+body .table td {
+    padding: 0px;
+    vertical-align: middle;
+}
+
+body .table th {
+    padding: 0px;
+    vertical-align: middle;
+}
+
+.snack-products, .temperature-settings {
+    text-align: center;
+}
+

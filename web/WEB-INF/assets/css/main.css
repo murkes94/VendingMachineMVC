@@ -1,0 +1,46 @@
+header {
+    min-height: 200px;
+    text-align: center;
+}
+
+header .greeting{
+    line-height: 60px;
+}
+
+body {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.websocket-status, .water-temp, .freezer-temp {
+    text-align: right;
+}
+
+.admin-login, .normal-mode {
+    float: left;
+}
+
+.water-temp p, .freezer-temp p {
+    display: inline;
+}
+
+.websocket-status .fas-wifi {
+    font-size: 24px;
+}
+
+.snack-products {
+    text-align: center;
+}
+
+.snack-products .product {
+    margin-bottom: 20px;
+}
+
+.snack-products .buy-product {
+    width: 100%;
+}
+
+.snack-products .out-of-stock {
+    width: 100%;
+    cursor: unset;
+}
