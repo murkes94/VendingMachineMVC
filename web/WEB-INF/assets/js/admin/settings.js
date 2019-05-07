@@ -2,11 +2,13 @@ $(document).ready(function() {
 
     //TODO update coffee products
 
-    $("td.editable").click(function() {
+    var tdEditable = $("td.editable");
+
+    tdEditable.click(function() {
         $(this).closest("td").addClass("editable-focus");
     });
 
-    $("td.editable").on("focusout", function() {
+    tdEditable.on("focusout", function() {
         $(this).closest("td").removeClass("editable-focus");
     });
 
