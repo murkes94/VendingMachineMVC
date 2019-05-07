@@ -59,10 +59,9 @@ public class AdminController {
     public ActionJsonResponse updateTemperatureSettings(Locale locale, TemperatureSettings temperatureSettings) {
         //TODO check correctness of data(temperature settings fields)
         temperatureSettingsService.editTemperatureSettings(temperatureSettings);
-        ActionJsonResponse actionJsonResponse = new ActionJsonResponse(
+        return new ActionJsonResponse(
                 messageSource.getMessage("temperature_settings_edited_successfully", null, locale),
                 true);
-        return actionJsonResponse;
     }
 
     @RequestMapping(value = "/update-snack-product", method = RequestMethod.POST)
@@ -70,10 +69,9 @@ public class AdminController {
     public ActionJsonResponse updateSnackProduct(Locale locale, SnackProduct snackProduct) {
         //TODO check correctness of data(snack product fields)
         snackProductService.editSnackProduct(snackProduct);
-        ActionJsonResponse actionJsonResponse = new ActionJsonResponse(
+        return new ActionJsonResponse(
                 messageSource.getMessage("product_edited_successfully", new Object[]{snackProduct.getId()}, locale),
                 true);
-        return actionJsonResponse;
     }
 
     @RequestMapping(value = "/update-coffee-product", method = RequestMethod.POST)
@@ -81,8 +79,7 @@ public class AdminController {
     public ActionJsonResponse updateCoffeeProduct(@RequestParam(value = "coffeeProductId")String coffeeProductId) {
         //TODO update coffee product
 
-        ActionJsonResponse actionJsonResponse = new ActionJsonResponse("", false);
-        return actionJsonResponse;
+        return new ActionJsonResponse("", false);
     }
 
     @RequestMapping(value = "/error-mark-as-solved", method = RequestMethod.POST)
@@ -91,16 +88,14 @@ public class AdminController {
         try {
             errorEntityService.markAsSolved(errorId);
         } catch(EntityNotFoundException e) {
-            //TODO logger (e)
-            ActionJsonResponse actionJsonResponse = new ActionJsonResponse(
+            //TODO log exception to logger.
+            return new ActionJsonResponse(
                     messageSource.getMessage("unexpected_error", null, locale),
                     false);
-            return actionJsonResponse;
         }
-        ActionJsonResponse actionJsonResponse = new ActionJsonResponse(
+        return new ActionJsonResponse(
                 messageSource.getMessage("error_marked_as_solved_successfully", null, locale),
                 true);
-        return actionJsonResponse;
     }
 
 }

@@ -34,3 +34,9 @@ body .table th {
     text-align: center;
 }
 
+.editable-focus {
+    padding: 5px;
+    border-radius: 15px;
+    background: #fff3b4;
+}
+

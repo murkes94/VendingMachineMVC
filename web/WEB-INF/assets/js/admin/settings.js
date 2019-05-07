@@ -1,8 +1,16 @@
 $(document).ready(function() {
 
-    //TODO !!!editable table fields
-
     //TODO update coffee products
+
+    $("td.editable").click(function() {
+        $(this).closest("td").addClass("editable-focus");
+    });
+
+    $("td.editable").on("focusout", function() {
+        $(this).closest("td").removeClass("editable-focus");
+    });
+
+    //TODO check correctness of data input
 
     $(".btn.temperature-settings-update").click(function () {
 
