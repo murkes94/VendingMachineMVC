@@ -7,24 +7,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/admin/admin.css"/>
-
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-
+    <jsp:include page="/WEB-INF/views/admin/header.jsp"></jsp:include>
     <script type="text/javascript" src="/assets/js/admin/errors.js"></script>
-
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
-
-    <title><spring:message code="main_title"/></title>
 </head>
 
 <body>
-    <jsp:include page="/WEB-INF/views/admin/header.jsp"></jsp:include>
-
     <div class="error-log">
         <h2><spring:message code="error_log"/></h2>
 
@@ -53,9 +40,11 @@
                     </td>
                     <td>
                         <input type="hidden" name="error-id" value="${error.id}"/>
-                        <button class="btn btn-primary mark-as-solved">
-                            <spring:message code="mark_as_solved"/>
-                        </button>
+                        <c:if test="${error.solved == false}">
+                            <button class="btn btn-primary mark-as-solved">
+                                <spring:message code="mark_as_solved"/>
+                            </button>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>

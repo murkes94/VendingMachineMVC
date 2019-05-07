@@ -7,25 +7,11 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/webjars/font-awesome/css/all.css"/>
-    <link rel="stylesheet" type="text/css" href="/assets/css/admin/admin.css"/>
-
-    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-
+    <jsp:include page="/WEB-INF/views/admin/header.jsp"></jsp:include>
     <script type="text/javascript" src="/assets/js/admin/settings.js"></script>
-
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.headerName}"/>
-
-    <title><spring:message code="main_title"/></title>
-
 </head>
 
 <body>
-    <jsp:include page="/WEB-INF/views/admin/header.jsp"></jsp:include>
-
     <div class="temperature-settings">
 
         <h2><spring:message code="temperature_settings"/></h2>
@@ -43,8 +29,8 @@
                 <tr>
                     <td><spring:message code="${temp.type}"/></td>
                     <input type="hidden" name="temperature-type" value="${temp.type}"/>
-                    <td class="min-temperature">${temp.minTemperature}</td>
-                    <td class="max-temperature">${temp.maxTemperature}</td>
+                    <td class="min-temperature editable" contenteditable="true">${temp.minTemperature}</td>
+                    <td class="max-temperature editable" contenteditable="true">${temp.maxTemperature}</td>
                     <td>
                         <button class="btn btn-primary temperature-settings-update">
                             <spring:message code="update"/>
@@ -72,9 +58,11 @@
             <c:forEach var="snackProduct" items="${snackProducts}">
                 <tr>
                     <td class="snack-product-id">${snackProduct.id}</td>
-                    <td class="snack-product-name">${snackProduct.name}</td>
-                    <td class="snack-product-price">${snackProduct.price}</td>
-                    <td class="snack-product-available-quantity">${snackProduct.availableQuantity}</td>
+                    <td class="snack-product-name editable" contenteditable="true">${snackProduct.name}</td>
+                    <td class="snack-product-price editable" contenteditable="true">${snackProduct.price}</td>
+                    <td class="snack-product-available-quantity editable" contenteditable="true">
+                            ${snackProduct.availableQuantity}
+                    </td>
                     <td>
                         <button class="btn btn-primary snack-product-update">
                             <spring:message code="update"/>

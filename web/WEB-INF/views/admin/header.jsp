@@ -4,17 +4,31 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<header>
-    <script type="text/javascript">
-        $(function() {
-            jQuery.i18n.properties({
-                name: "language",
-                path: "/locale/",
-                mode: "both",
-                language: "${pageContext.response.locale}"
-            });
+<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/webjars/font-awesome/css/all.css"/>
+<link rel="stylesheet" type="text/css" href="/assets/css/admin/admin.css"/>
+
+<script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/webjars/jquery-i18n-properties/jquery.i18n.properties.js"></script>
+
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
+
+<title><spring:message code="main_title"/></title>
+
+<script type="text/javascript">
+    $(function() {
+        jQuery.i18n.properties({
+            name: "language",
+            path: "/locale/",
+            mode: "both",
+            language: "${pageContext.response.locale}"
         });
-    </script>
+    });
+</script>
+
+<header>
     <p class="greeting"><spring:message code="greeting_vending"/></p>
     <p class="greeting-admin"><spring:message code="admin_panel"/></p>
     <form action="<c:url value="/" />" method="GET">
